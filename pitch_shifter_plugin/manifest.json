@@ -2,8 +2,8 @@
   "manifest_version": 2,
   "name": "Python Function Caller",
   "version": "1.0",
-  "description": "An Edge extension that calls a Python function",
-  "permissions": ["activeTab"],
+  "description": "An <mark>Edge</mark> extension that calls a Python function",
+  "permissions": ["activeTab", "contextMenus"],
   "browser_action": {
     "default_icon": "icon48.png",
     "default_popup": "popup.html",
@@ -11,6 +11,10 @@
   },
   "icons": {
     "48": "icon48.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
   },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
