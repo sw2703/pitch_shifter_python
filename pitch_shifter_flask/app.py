@@ -9,8 +9,9 @@ CORS(app)  # This enables CORS for all routes in your Flask app
 def run_python_function():
     data = request.json
     input_value = data.get('input_value', '')
+    semitones = data.get('semitones', -2)
     output_file = 'hello_world.mp3'
-    change_pitch_from_url(input_value, output_file, -2)
+    change_pitch_from_url(input_value, output_file, semitones)
     return send_file(output_file, mimetype='audio/mpeg', as_attachment=True, download_name=output_file)
 
 if __name__ == '__main__':
