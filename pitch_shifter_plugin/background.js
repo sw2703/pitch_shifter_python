@@ -58,7 +58,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ input_value: linkUrl })
+      body: JSON.stringify({ input_value: linkUrl, semitones: -4 })
     });
 
     const data = await response.json();
