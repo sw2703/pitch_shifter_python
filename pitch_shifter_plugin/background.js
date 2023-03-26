@@ -2,14 +2,14 @@ chrome.runtime.onInstalled.addListener(() => {
   // Option to play at -2 semitones
   chrome.contextMenus.create({
     title: 'Play at -2 Semitones',
-    contexts: ['link'],
+    contexts: ['link', 'audio'],
     id: 'callPythonFunction'
   });
 
   // Option to play at -4 semitones
   chrome.contextMenus.create({
     title: 'Play at -4 Semitones',
-    contexts: ['link'],
+    contexts: ['link', 'audio'],
     id: 'callPythonFunctionMinus4'
   });
 });
@@ -17,7 +17,7 @@ chrome.runtime.onInstalled.addListener(() => {
 
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === 'callPythonFunction') {
-    const linkUrl = info.linkUrl;
+    const linkUrl = info.linkUrl || info.srcUrl;
     const response = await fetch('http://127.0.0.1:5000/run_python_function', {
       method: 'POST',
       headers: {
@@ -52,7 +52,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     });
   }
   if (info.menuItemId === 'callPythonFunctionMinus4') {
-    const linkUrl = info.linkUrl;
+    const linkUrl = info.linkUrl || info.srcUrl;
     const response = await fetch('http://127.0.0.1:5000/run_python_function', {
       method: 'POST',
       headers: {
