@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
-  "name": "Python Function Caller",
+  "name": "Change Tone",
   "version": "1.0",
   "description": "An <mark>Edge</mark> extension that calls a Python function",
   "permissions": ["activeTab", "contextMenus"],
   "browser_action": {
     "default_icon": "icon48.png",
-    "default_title": "Call Python Function"
+    "default_title": "Change Tone"
   },
   "icons": {
     "48": "icon48.png"
